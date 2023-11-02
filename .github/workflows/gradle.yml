@@ -38,6 +38,7 @@ jobs:
           sed -i 's|tag:.*|tag: '${{ github.sha }}'|' values.yaml 
           git config --global user.name 'Sonam11'
           git config --global user.email 'Sonam11@github.com'
+          $git config --global user.password ${{ secrets.GIT_TOKEN }}
           git add values.yaml
           git commit -m "Update values.yaml git sha"
           git push

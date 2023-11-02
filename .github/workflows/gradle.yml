@@ -32,3 +32,12 @@ jobs:
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
       with:
         arguments: build
+    - name: Promote build to env
+      run: |
+          cd k8s/helm/dev/va6
+          sed -i 's|tag:.*|tag: '${{ github.sha }}'|' values.yaml 
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add values.yaml
+          git commit -m "Update values.yaml git sha"
+          git push

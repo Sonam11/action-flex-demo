@@ -42,7 +42,7 @@ ethos-k8s-helm-templates:
   deployment:
     name: deploy1
     scaling:
-      minContainers: 1
+      minContainers: 2
       maxContainers: 5
      
       cpuTargetValue: 50

@@ -43,7 +43,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: docker-stayal-ethos-caas-next-release.dr-uw2.adobeitc.com/github-action-demo:{{ github.sha }}
+        tags: docker-stayal-ethos-caas-next-release.dr-uw2.adobeitc.com/github-action-demo:${{ github.sha }}
     - name: Promote build to env
       run: |
           cd k8s/helm/dev/va6
